@@ -1,0 +1,385 @@
+/* --- LUXURY DESIGN VARIABLES --- */
+:root {
+  --bg-primary: #dce1e9;
+  --bg-surface: #ffffff;
+  --text-main: #363732;
+  --accent-cyan: #53d8fb;
+  --accent-blue: #66c3ff;
+  --accent-rose: #d4afb9;
+  --text-muted: #5e625a;
+  --border-subtle: rgba(54, 55, 50, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-blur: blur(12px);
+  --easing: cubic-bezier(0.25, 1, 0.5, 1);
+  --transition: all 0.5s var(--easing);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #363732;
+  --bg-surface: #1c1d1a;
+  --text-main: #dce1e9;
+  --accent-cyan: #53d8fb;
+  --accent-blue: #66c3ff;
+  --accent-rose: #d4afb9;
+  --text-muted: #a5abb6;
+  --border-subtle: rgba(220, 225, 233, 0.1);
+  --glass-bg: rgba(28, 29, 26, 0.5);
+  --glass-blur: blur(16px);
+}
+
+/* --- OVERALL BRAND PATTERNS --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cinzel", "Didot", "Playfair Display", serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  transition: var(--transition);
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+.logo {
+  font-family: "Cinzel", serif;
+  letter-spacing: 3px;
+  font-weight: 400;
+}
+
+p,
+a,
+button,
+label,
+input,
+textarea {
+  font-family: "Montserrat", "Inter", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* --- THE NAVIGATION --- */
+header {
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: var(--glass-blur);
+}
+
+main {
+  flex: 1;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.8rem 2rem;
+}
+
+.logo {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.logo span {
+  color: var(--accent-rose);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  opacity: 0.7;
+  transition: var(--transition);
+}
+
+nav a:hover,
+nav a.active {
+  opacity: 1;
+  color: var(--accent-rose);
+}
+
+#theme-toggle {
+  background: none;
+  border: 1px solid var(--text-main);
+  color: var(--text-main);
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition);
+}
+
+#theme-toggle:hover {
+  background-color: var(--text-main);
+  color: var(--bg-surface);
+}
+
+/* --- THE MAIN FRAMEWORK --- */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  width: 100%;
+}
+
+.hero {
+  min-height: 52vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 1.05;
+}
+
+.hero p {
+  max-width: 650px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.btn {
+  display: inline-block;
+  border: 1px solid var(--text-main);
+  background: transparent;
+  color: var(--text-main);
+  padding: 0.85rem 1.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background-color: var(--text-main);
+  color: var(--bg-surface);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
+  gap: clamp(3rem, 8vw, 9rem);
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact-grid h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.2;
+}
+
+.contact-grid p {
+  line-height: 1.8;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0;
+  background: var(--glass-bg);
+  color: var(--text-main);
+  padding: 0.85rem 1rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+.form-group textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent-rose);
+  box-shadow: 0 0 0 3px rgba(212, 175, 185, 0.16);
+}
+
+footer {
+  width: 100%;
+  border-top: 1px solid var(--border-subtle);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+footer p {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .nav-container {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.25rem 1.25rem;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    gap: 1rem 1.25rem;
+  }
+
+  .container {
+    padding: 4rem 1.25rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  footer {
+    padding: 1.25rem;
+  }
+}
+
+/* --- MODERNIZED PINTEREST MASONRY --- */
+.gallery-container {
+  columns: 3 350px; /* Enhanced sizing definitions */
+  column-gap: 2rem;
+  width: 100%;
+}
+
+.gallery-item {
+  background-color: var(--bg-surface);
+  margin-bottom: 2rem;
+  break-inside: avoid;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(20%);
+  transition:
+    transform 0.8s var(--easing),
+    filter 0.5s var(--easing);
+}
+
+/* Hover Zoom & Info Reveal Effect */
+.gallery-item:hover img {
+  transform: scale(1.04);
+  filter: grayscale(0%);
+}
+
+.gallery-info {
+  padding: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+
+.gallery-info h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+/* --- ROBUST ACCESSIBLE LIGHTBOX --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  max-width: 80%;
+  max-height: 80vh;
+  object-fit: contain;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+  transform: scale(0.95);
+  transition: transform 0.4s var(--easing);
+}
+
+.modal.show .modal-content {
+  transform: scale(1);
+}
+
+.close-modal {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: var(--text-main);
+  font-size: 3rem;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  line-height: 1;
+  transition: var(--transition);
+}
+
+.close-modal:hover {
+  color: var(--accent-rose);
+  transform: rotate(90deg);
+}
