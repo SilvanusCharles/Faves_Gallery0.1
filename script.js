@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
+  initMobileNavigation();
 });
 
 // --- MODERN STATE MECHANISM (THEMING) ---
@@ -25,6 +26,25 @@ function initTheme() {
 function updateToggleButtonText(button, theme) {
   if (!button) return;
   button.textContent = theme === "dark" ? "Light Profile" : "Dark Profile";
+}
+
+function initMobileNavigation() {
+  const nav = document.querySelector(".site-nav");
+  const toggle = document.querySelector(".nav-toggle");
+
+  if (!nav || !toggle) return;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  });
 }
 
 // --- FIX RESOLUTION: DYNAMIC TARGET OBJECT RENDERING ---
