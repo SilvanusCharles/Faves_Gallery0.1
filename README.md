@@ -1,6 +1,6 @@
-# Favors Gallery
+# Vee's Gallery
 
-Favors Gallery is a refined static portfolio website for showcasing bespoke fashion concepts and contemporary design direction. The project combines an editorial visual style with a responsive layout, an interactive image gallery, persistent light and dark profiles, and a contact page for collaboration requests.
+Vee's Gallery is a refined static portfolio website for showcasing bespoke fashion concepts and contemporary design direction. The project combines an editorial visual style with a responsive layout, an interactive image gallery, persistent light and dark profiles, and a contact page for collaboration requests.
 
 ## Features
 
@@ -14,7 +14,7 @@ Favors Gallery is a refined static portfolio website for showcasing bespoke fash
 
 ## Pages
 
-- **Home**: Introduces the Favors Gallery design direction.
+- **Home**: Introduces the Vee's Gallery design direction.
 - **Gallery**: Presents the available fashion concepts and supports full-size previews.
 - **About**: Describes the creative vision behind the gallery.
 - **Contact**: Provides a collaboration request form.
@@ -68,4 +68,4 @@ The contact form is prepared for Formspree submission. Before publishing, replac
 
 ## License
 
-This project is a personal portfolio website for Favors Gallery. Add a license here if the project will be distributed for reuse.
+This project is a personal portfolio website for Vee's Gallery. Add a license here if the project will be distributed for reuse.
