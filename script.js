@@ -1,30 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
-  initTheme();
+  initMobileNavigation();
 });
 
-// --- MODERN STATE MECHANISM (THEMING) ---
-function initTheme() {
-  const toggleBtn = document.getElementById("theme-toggle");
-  const currentTheme = localStorage.getItem("theme") || "light";
+function initMobileNavigation() {
+  const nav = document.querySelector(".site-nav");
+  const toggle = document.querySelector(".nav-toggle");
 
-  document.documentElement.setAttribute("data-theme", currentTheme);
-  updateToggleButtonText(toggleBtn, currentTheme);
+  if (!nav || !toggle) return;
 
-  if (toggleBtn) {
-    toggleBtn.addEventListener("click", () => {
-      let theme = document.documentElement.getAttribute("data-theme");
-      let newTheme = theme === "dark" ? "light" : "dark";
+  toggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+  });
 
-      document.documentElement.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
-      updateToggleButtonText(toggleBtn, newTheme);
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
     });
-  }
-}
-
-function updateToggleButtonText(button, theme) {
-  if (!button) return;
-  button.textContent = theme === "dark" ? "Light Profile" : "Dark Profile";
+  });
 }
 
 // --- FIX RESOLUTION: DYNAMIC TARGET OBJECT RENDERING ---
