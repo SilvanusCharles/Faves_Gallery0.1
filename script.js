@@ -1,32 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  initTheme();
   initMobileNavigation();
 });
-
-// --- MODERN STATE MECHANISM (THEMING) ---
-function initTheme() {
-  const toggleBtn = document.getElementById("theme-toggle");
-  const currentTheme = localStorage.getItem("theme") || "light";
-
-  document.documentElement.setAttribute("data-theme", currentTheme);
-  updateToggleButtonText(toggleBtn, currentTheme);
-
-  if (toggleBtn) {
-    toggleBtn.addEventListener("click", () => {
-      let theme = document.documentElement.getAttribute("data-theme");
-      let newTheme = theme === "dark" ? "light" : "dark";
-
-      document.documentElement.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
-      updateToggleButtonText(toggleBtn, newTheme);
-    });
-  }
-}
-
-function updateToggleButtonText(button, theme) {
-  if (!button) return;
-  button.textContent = theme === "dark" ? "Light Profile" : "Dark Profile";
-}
 
 function initMobileNavigation() {
   const nav = document.querySelector(".site-nav");
